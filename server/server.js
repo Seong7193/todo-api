@@ -49,7 +49,7 @@ app.get('/todos/:id', (req, res) => {
 app.delete('/todos/:id', (req,res) => {
     //get the id
     var id = req.params.id;
-    
+
     //validate the id -> not valid return 404
     if(!ObjectID.isValid(id)){
         return res.status(404).send();
@@ -65,7 +65,7 @@ app.delete('/todos/:id', (req,res) => {
         if(!todo){
             return res.status(404).send();
         }
-        res.status(200).send({todo});
+        res.send({todo});
     }).catch((e) => res.status(400).send());
 })
 
